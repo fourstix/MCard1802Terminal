@@ -88,7 +88,8 @@ Examples
   <td>Fritzing digram showing connections</td>
   <td>Screen shot of Terminal Window showing Membership Card responsing correctly</td>
   </tr>
- </table> 
+ </table>
+ 
 Repository Contents
 -------------------
 * **/src/MCard1802Terminal/**
