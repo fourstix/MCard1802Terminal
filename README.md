@@ -57,7 +57,7 @@ Installation
    * Connect Arduino Pin 8 (RX) to Q P1-12 on the Membership Card
    * Connect Arduino Pin 9 (TX) to /EF3 P1-27 on the Membership Card.
    * Connect Arduino GND to Gnd, P1-1 or P1-30, on the Membership Card
-   * If desired, conect 
+   * If desired, conect Arduino +5V to VDD P1-14. (Use external power to Arduino for reliable operation.)
 * Install the AltSoftSerial library using the Arduino Library Manager
    * In the Menu of the Arduino IDE, go to Tools > Manage Libraries...
    * In the Library Manager window, type in "AltSoftSerial"
@@ -72,7 +72,7 @@ Installation
    * Set the Baud rate to 9600
    * Set the Line Ending to "Carriage return"   
    * You should see the Terminal Menu followed by the Monitor programs initial response.
-   * If needed, send a blank line, or Carriage return '\r'.  
+   * If needed, press enter to send a blank line with a Carriage return
    * If no response, disconnect Run P1-13 from VDD P1-14, briefly, then reconnect and try again.
    
 Examples
@@ -88,6 +88,7 @@ Examples
   <td>Fritzing digram showing connections</td>
   <td>Screen shot of Terminal Window showing Membership Card responsing correctly</td>
   </tr>
+ </table> 
 Repository Contents
 -------------------
 * **/src/MCard1802Terminal/**
