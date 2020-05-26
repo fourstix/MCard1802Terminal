@@ -107,7 +107,7 @@ References to any products, programs or services do not imply
 that they will be available in all countries in which their respective owner operates.
 
 The AltSoftSerial library by Paul Stoffregen
-Copyright (c) 2012 PJRC.COM, LLC, Paul Stoffregen, paul@pjrc.com
+Copyright (c) 2012 PJRC.COM, LLC, Paul Stoffregen
 
 The 1802 Membership Card Microcomputer 
 Copyright (c) 2006-2020  by Lee A. Hart.
