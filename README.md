@@ -22,7 +22,7 @@ QuickStart Instructions
  Connect the Arduino to the Membership Card as follows:
  
  Arduino Pin     MCard1802
-   9 (TX)        /EF3 (RX)   P1 - 27 
+   9 (TX)        /EF3 (RX)   P1 - 26 
    8 (RX)          Q  (TX)   P1 - 12
    GND             GND       P1 -  1 (and/or P1 - 30)
    +5V		   VDD	     P1 - 14 (Opitonal, you can power Membership card with it's on 5v supply)
@@ -53,25 +53,29 @@ Installation
    * P1-1 and P1-30 GND should be connected to ground.
    * P1-13 and P1-14 (RUN and VDD) should be connected together.
    * P1-10 and P1-11 (/WE and /MWR) should be connected togther. 
+   
 * Connect the Aduino Serial pins to the 1802 Membership Card Serial pins.
    * Connect Arduino Pin 8 (RX) to Q P1-12 on the Membership Card
-   * Connect Arduino Pin 9 (TX) to /EF3 P1-27 on the Membership Card.
+   * Connect Arduino Pin 9 (TX) to /EF3 P1-26 on the Membership Card.
    * Connect Arduino GND to Gnd, P1-1 or P1-30, on the Membership Card
    * If desired, conect Arduino +5V to VDD P1-14. (Use external power to Arduino for reliable operation.)
+   
 * Install the AltSoftSerial library using the Arduino Library Manager
    * In the Menu of the Arduino IDE, go to Tools > Manage Libraries...
    * In the Library Manager window, type in "AltSoftSerial"
    * In the listing for "AltSoftSerial by Paul Stoffregen", click on the Install button.
+   
 * Load the code to Arduino from your computer using the USB cable.
    * Download and open the MCard1802Terminal.ino file in the Arduino IDE
    * Connect the Arduino to your computer with the USB cable
    * Select the proper board and port for your Arduino
    * Click on the Upload button to compile and run the code on your Arduino
+   
 * Open the Serial Monitor 
    * In the Arduino IDE select Tools > Serial Monitor (or use hotkey Ctrl-Shift-M)
    * Set the Baud rate to 9600
    * Set the Line Ending to "Carriage return"   
-   * You should see the Terminal Menu followed by the Monitor programs initial response.
+   * You should see the Terminal Menu followed by the Monitor program's initial response.
    * If needed, press enter to send a blank line with a Carriage return
    * If no response, disconnect Run P1-13 from VDD P1-14, briefly, then reconnect and try again.
    
@@ -84,9 +88,9 @@ Examples
    <td><img src="https://github.com/fourstix/MCard1802Terminal/blob/master/pics/TerminalWindow.jpg"></td> 
   </tr>
   <tr align="center">
-  <td>Picture of Arduino Terminal connected to 1802 Membership Card</td>
+  <td>Picture of Arduino connected to 1802 Membership Card</td>
   <td>Fritzing digram showing connections</td>
-  <td>Screen shot of Terminal Window showing Membership Card responsing correctly</td>
+  <td>Screen shot of Terminal Window showing Membership Card Monitor program's initial response.</td>
   </tr>
  </table>
  
@@ -94,7 +98,7 @@ Repository Contents
 -------------------
 * **/src/MCard1802Terminal/**
   * MCard1802Terminal.ino -- Arduino based Serial Terminal for the 1802 Membership Card Starter Kit.
-* **/pics** -- example pictures
+* **/pics/** -- example pictures used in README.md
 
 
 License Information

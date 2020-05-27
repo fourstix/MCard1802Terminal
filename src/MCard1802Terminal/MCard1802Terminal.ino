@@ -18,7 +18,7 @@
  * Connect the Arduino to the Membership Card as follows:
  * 
  * Arduino Pin     MCard1802
- *   9 (TX)        /EF3 (RX)   P1 - 27 
+ *   9 (TX)        /EF3 (RX)   P1 - 26
  *   8 (RX)          Q  (TX)   P1 - 12
  *   GND             GND       P1 -  1 (or P1 - 30)
  *
@@ -104,37 +104,28 @@ void loop() {
     } // if altSerial.available
 } // loop
 
-//Process characters for escapes in terminal mode
+//Process characters while in terminal mode
 void processTerminalChar(char inChar) {
   //First check to see if this is the second hex digit in \hh escape
   if (hex_escape) {
-    if (isHexadecimalDigit(inChar)) {
-      //Shift first hex digit into high nibble
-      hex_char = hex_char << 4;
-      hex_char &= getHexValue(inChar);
-  
-      //Mask off 8th bit, to ensure valid ASCII and send
-      hex_char &= ASCII_MASK;
-      sendChar(hex_char);
-    } else {
-      //A Non-hex character terminates the hex escape \h
-      //First, Send the hex code we have so far
-      sendChar(hex_char);
-      
-      //Check to see if next char starts another escape sequence
-      //Otherwise send the non-hex character
-      if (inChar == '\\') {
-        escape = true;
-      } else {
-        sendChar(inChar);
-      } // if-else inChar is backslash      
-    } //if=else isHexadecimalDigit
+    processHexEscape(inChar);
     //Hex Escape Sequnce done, reset variables
     hex_escape = false;
     hex_char = 0x00;
-  } else if (escape) {
-    //Process escape sequence
-    switch(inChar) {
+  } else if (escape) {  //Next check to see of char in escape sequence    
+    processEscape(inChar); 
+    //Finished process escape (hex escape flag may still be true);  
+    escape = false;
+  } else if (inChar == '\\') {  //Next character determines escape sequence
+    escape = true;
+  } else {  // Send it out to the Membership Card
+    sendChar(inChar);   
+  }//if-else
+} // processTerminalChar
+
+//Process characters in escape sequence
+void processEscape(char e_Char) {      
+    switch(e_Char) {
       //Backslash
       case '\\':
         sendChar('\\');   
@@ -165,29 +156,47 @@ void processTerminalChar(char inChar) {
        
       default: 
          //Hexadecimal escape sequence \h or \hh
-         if (isHexadecimalDigit(inChar)) {
+         if (isHexadecimalDigit(e_Char)) {
            //Hex escape sequence can be one or two hex characters
            hex_escape = true;
            //Set character to first hex digit
-           hex_char = getHexValue(inChar);            
+           hex_char = getHexValue(e_Char);           
          } else {
           //Unknown character after escape,
           //send backslash plus character as literal
           sendChar('\\');
-          sendChar(inChar);  
+          sendChar(e_Char);  
          } //if-else isHexadecimalDigit
       break;      
     } // switch
-    //Finished process escape (hex escape flag may still be true);  
-    escape = false;
-  } else if (inChar == '\\') {
-    //Next character determines escape sequence
-    escape = true;
-  } else {
-    // Send it out to the Membership Card
-    sendChar(inChar);   
-  }//if-else
-} // processTerminalChar
+}
+//process characters in hex escape sequence
+void processHexEscape(char h_char) {
+  if (isHexadecimalDigit(h_char)) {
+      //Shift first hex digit into high nibble
+      hex_char = hex_char << 4;     
+      
+      //Put second character into low nibble
+      hex_char |= getHexValue(h_char);
+      
+      //Mask off 8th bit, to ensure valid ASCII and send
+      hex_char &= ASCII_MASK;
+       
+      sendChar(hex_char);
+    } else {
+      //A Non-hex character terminates the hex escape \h
+      //First, Send the hex code we have so far
+      sendChar(hex_char);
+      
+      //Check to see if next char starts another escape sequence
+      //Otherwise send the non-hex character
+      if (h_char == '\\') {
+        escape = true;
+      } else {
+        sendChar(h_char);
+      } // if-else h_Char is backslash      
+    } //if=else isHexadecimalDigit
+}
 
 //Show the ASCII Terminal menu
 void showTerminalMenu() {
