@@ -7,15 +7,20 @@ Introduction
 This repository contains an Arduino Serial Terminal program for use with the 1802 Membership Card Starter Kit.
 
 The 1802 Membership Card Starter Kit is available from Lee Hart on his [website.](http://www.sunrise-ev.com/1802.htm)  
-Additional documentation and other information are availble from Herb Johnson's 
-[1802 Membership Card wesite.](http://www.retrotechnology.com/memship/memship.html)
+Additional documentation and other information are available from Herb Johnson's 
+[1802 Membership Card website.](http://www.retrotechnology.com/memship/memship.html)
 
 This program can be used to communicate with the MCSMP20A Super Monitor program running on the ROM supplied with
 the Membership Card Starter Kit.
 
 
-This code uses the AltSoftSerial library by Paul Stoffregen for Serial communication to the 1802 Membeship Card. 
-This library is available through the Arduino Library Manager or on [github.](https://github.com/PaulStoffregen/AltSoftSerial)
+This code uses the AltSoftSerial library by Paul Stoffregen for Serial communication to the 1802 Membership Card. 
+This library is available through the Arduino Library Manager or in the [PaulStoffregen/AltSoftSerial repository](https://github.com/PaulStoffregen/AltSoftSerial)
+on GitHub.
+
+For more programs supporting the 1802 Membership Card with various Arduino based hardware please see the 
+[fourstix/MCard1802Arduino repository](https://github.com/fourstix/MCard1802Arduino) on GitHub.
+
 
 QuickStart Instructions
 -----------------------
@@ -25,10 +30,10 @@ QuickStart Instructions
    9 (TX)        /EF3 (RX)   P1 - 26 
    8 (RX)          Q  (TX)   P1 - 12
    GND             GND       P1 -  1 (and/or P1 - 30)
-   +5V		   VDD	     P1 - 14 (Opitonal, you can power Membership card with it's on 5v supply)
+   +5V		   VDD	     P1 - 14 (Optional, you can power Membership card with its own 5v supply)
    
  (Note: if you power the Membership Card through the Arduino +5V pin, 
- supply external power to the Arduino power Jac since the USB power alone
+ supply external power to the Arduino power jack since USB power alone
  is not quite enough to reliably power both the Arduino and Membership Card together.)
 
  Start the Monitor program on the 1802 Membership Card,
@@ -36,7 +41,7 @@ QuickStart Instructions
  connect pins P1-13 and P1-14, Run and Vdd, and also connect 
  pins P1-10 and P1-11, /MWR and /WE, for the Membership card 
  to run correctly. The Monitor program is usually in the ROM 
- chip supplied, labled something like MCSMP20A.)
+ chip supplied, labeled something like MCSMP20A.)
   
  Start the Arduino Serial Monitor in the Arduino IDE, using 
  the Menu Tools > Serial Monitor or the Shift+Ctrl+M hot key.
@@ -49,16 +54,16 @@ Installation
 ------------
 
 * Connect the power to the Membership Card Starter Kit according to the instructions.  
-   * P1-14 VDD is connected to +5V (If using Arduino +5V for VDD, use external power to Arudino)
+   * P1-14 VDD is connected to +5V (If using Arduino +5V for VDD, use external power to Arduino)
    * P1-1 and P1-30 GND should be connected to ground.
    * P1-13 and P1-14 (RUN and VDD) should be connected together.
-   * P1-10 and P1-11 (/WE and /MWR) should be connected togther. 
+   * P1-10 and P1-11 (/WE and /MWR) should be connected together. 
    
-* Connect the Aduino Serial pins to the 1802 Membership Card Serial pins.
+* Connect the Arduino Serial pins to the 1802 Membership Card Serial pins.
    * Connect Arduino Pin 8 (RX) to Q P1-12 on the Membership Card
    * Connect Arduino Pin 9 (TX) to /EF3 P1-26 on the Membership Card.
-   * Connect Arduino GND to Gnd, P1-1 or P1-30, on the Membership Card
-   * If desired, conect Arduino +5V to VDD P1-14. (Use external power to Arduino for reliable operation.)
+   * Connect Arduino GND to GND, P1-1 and P1-30, on the Membership Card.
+   * If desired, connect Arduino +5V to VDD P1-14 (and use external power to Arduino for reliable operation.)
    
 * Install the AltSoftSerial library using the Arduino Library Manager
    * In the Menu of the Arduino IDE, go to Tools > Manage Libraries...
@@ -88,9 +93,9 @@ Examples
    <td><img src="https://github.com/fourstix/MCard1802Terminal/blob/master/pics/TerminalWindow.jpg"></td> 
   </tr>
   <tr align="center">
-  <td>Picture of Arduino connected to 1802 Membership Card</td>
-  <td>Fritzing digram showing connections</td>
-  <td>Screen shot of Terminal Window showing Membership Card Monitor program's initial response.</td>
+  <td>Picture of Arduino connected to the 1802 Membership Card</td>
+  <td>Fritzing diagram showing connections</td>
+  <td>Screen shot of Terminal Window with the 1802 Membership Card Monitor program's initial response.</td>
   </tr>
  </table>
  
@@ -116,7 +121,7 @@ Copyright (c) 2012 PJRC.COM, LLC, Paul Stoffregen
 The 1802 Membership Card Microcomputer 
 Copyright (c) 2006-2020  by Lee A. Hart.
  
-Many thanks to the original authors for making their designs and code avaialble as open source.
+Many thanks to the original authors for making their designs and code available as open source.
 
 This code, firmware, and software is released under the [MIT License](http://opensource.org/licenses/MIT).
 
