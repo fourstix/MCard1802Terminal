@@ -40,6 +40,7 @@
 //SoftwareSerial library is *NOT* Full-duplex and won't work here.
 #include <AltSoftSerial.h>
 
+
 //Mask for 7-bit ASCII
 #define ASCII_MASK    0x7F
 
@@ -153,7 +154,13 @@ void processEscape(char e_Char) {
       case 'T':
         sendChar('\t');   
       break;
-       
+      
+      //Escape
+      case 'e':
+      case 'E':
+        sendChar(0x1b);   
+      break;
+              
       default: 
          //Hexadecimal escape sequence \h or \hh
          if (isHexadecimalDigit(e_Char)) {
@@ -203,10 +210,11 @@ void showTerminalMenu() {
   Serial.println();
   Serial.println(F("**** ASCII Terminal ****"));
   Serial.println(F("Note: Set Line Ending to \'Carriage return\'."));
-  Serial.println(F("Escape characters:"));
+  Serial.println(F("Escape characters:"));  
   Serial.println(F("\\t    tab (09)"));
   Serial.println(F("\\r    carriage return (0D)"));
   Serial.println(F("\\n    new line (0A)"));
+  Serial.println(F("\\e    escape (1B), abort or break monitor command"));
   Serial.println(F("\\\\    backslash (5C)"));
   Serial.println(F("\\hh   hexadecimal ASCII character, 00 to 7F"));
   Serial.println(F("\\?    print this menu"));
