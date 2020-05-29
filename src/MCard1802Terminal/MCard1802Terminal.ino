@@ -214,7 +214,7 @@ void showTerminalMenu() {
   Serial.println(F("\\t    tab (09)"));
   Serial.println(F("\\r    carriage return (0D)"));
   Serial.println(F("\\n    new line (0A)"));
-  Serial.println(F("\\e    escape (1B), abort or break monitor command"));
+  Serial.println(F("\\e    escape (1B), cancel or break command"));
   Serial.println(F("\\\\    backslash (5C)"));
   Serial.println(F("\\hh   hexadecimal ASCII character, 00 to 7F"));
   Serial.println(F("\\?    print this menu"));
