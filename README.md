@@ -84,7 +84,7 @@ Installation
    * If needed, press enter to send a blank line with a Carriage return
    * If no response, disconnect Run P1-13 from VDD P1-14, briefly, then reconnect and try again.  
    * Alternatively, you can use a terminal program like RealTerm instead of the Arduino IDE Serial Monitor.
-   * Please see this [Sparkfun Terminal Tutorial](https://learn.sparkfun.com/tutorials/terminal-basics/real-term-windows) for more information.
+   * Please see this [Sparkfun Terminal Tutorial](https://learn.sparkfun.com/tutorials/terminal-basics/real-term-windows) for more information on RealTerm.
    
 * For Inverse Logic   
    * To run an 1802 Membership card with a ROM with inverse logic like MCSMP20J.
@@ -96,6 +96,7 @@ Installation
    * Manually install this Arduino Library. Please see this [Sparkfun Arduino Library Tutorial](https://learn.sparkfun.com/tutorials/installing-an-arduino-library) for details.
    * Compile the Arduino code with AltSoftSerial(true) contstructor.
    * Open the Serial Monitor as before. For programs with ANSI graphics, like in Adventureland, use a terminal program like [RealTerm.](https://realterm.sourceforge.io/)
+   * Please see this [Sparkfun Terminal Tutorial](https://learn.sparkfun.com/tutorials/terminal-basics/real-term-windows) for more information on RealTerm.
    
 Examples
 --------
