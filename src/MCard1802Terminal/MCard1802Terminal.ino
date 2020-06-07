@@ -19,7 +19,7 @@
  * 
  * Arduino Pin     MCard1802
  *   9 (TX)        /EF3 (RX)   P1 - 26
- *   8 (RX)          Q  (TX)   P1 - 12
+ *   8 (RX)          Q  (TX)   P1 - 12 (Positive logic)
  *   GND             GND       P1 -  1 (or P1 - 30)
  *
  * Start the Monitor program on the 1802 Membership Card,
@@ -39,7 +39,8 @@
 
 //SoftwareSerial library is *NOT* Full-duplex and won't work here.
 #include <AltSoftSerial.h>
-
+//Inverse logic support for AltSoftSerial is avaliable at this fork:
+//Pull Request #59: https://github.com/fourstix/AltSoftSerial  
 
 //Mask for 7-bit ASCII
 #define ASCII_MASK    0x7F
@@ -58,8 +59,39 @@
 // Sanguino          13        14         12
 
 
-//Default is with RX pin 8, TX pin 9
+//Default is with RX pin 8, TX pin 9, No inversion
 AltSoftSerial altSerial;
+
+//Inverse Logic: RX pin 8 connected to /Q, hardware inversion
+//TX pin 9 connected to /EF3, software does the inversion
+//AltSoftSerial altSerial(true);
+
+/*
+ * If you are using inverted logic ROM like MCSMP20J 
+ * then you need to invert Q with a transistor or logic 
+ * inverter and use an updated version of AltSoftSerial 
+ * that supports inverse logic through the inverse argument 
+ * passed in the constructor AltSoftSerial(true).  The
+ * updated AltSoftSerial library will hand the inversion on 
+ * the TX line.  This way one can run the latest version 
+ * of the 1802 Membership Card Monitor ROM MCSMP20J, that
+ * includes Basic3 and Adventureland.
+ * 
+ * I forked the AltSoftSerial library and added the code 
+ * changes to add this function to the AltSoftSerial library. 
+ * Pull Request #59 contains changes to support this logic.
+ * 
+ * Until Pull Request #59 is merged with the main repository.
+ * You may get the updated code from this fork:
+ * 
+ * https://github.com/fourstix/AltSoftSerial
+ * 
+ * The inverse flag works the same way as it does in 
+ * SoftwareSerial library.  The code is identical to the main
+ * repository, except for the changes to support the inverse
+ * function.
+ * 
+ */
 
 //Variables for Ascii terminal
 boolean escape        = false;
