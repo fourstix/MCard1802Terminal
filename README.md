@@ -92,7 +92,7 @@ Installation
    * Connect /Q (NOT Q) to Arduino pin 8 (RX), connect pin 9 (TX) to /EF3 P1-26 (The software will invert TX.)
    * Connect Arduino GND to GND, P1-1 and P1-30, on the Membership Card.
    * Obtain a version of AltSoftSerial that supports invese logic from [fourstix/AltSoftSerial](https://github.com/fourstix/AltSoftSerial)
-   * See [Pull Request #59](https://github.com/PaulStoffregen/AltSoftSerial/pull/59) for status in main repository.
+   * See [Pull Request #59](https://github.com/PaulStoffregen/AltSoftSerial/pull/59) for status of code changes in main repository. Once merged, this function will be available in the main repository.
    * Manually install this Arduino Library. Please see this [Sparkfun Arduino Library Tutorial](https://learn.sparkfun.com/tutorials/installing-an-arduino-library) for details.
    * Compile the Arduino code with AltSoftSerial(true) contstructor.
    * Open the Serial Monitor as before. For programs with ANSI graphics, like in Adventureland, use a terminal program like [RealTerm.](https://realterm.sourceforge.io/)
