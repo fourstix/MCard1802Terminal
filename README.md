@@ -16,7 +16,8 @@ the Membership Card Starter Kit.
 
 This code uses the AltSoftSerial library by Paul Stoffregen for Serial communication to the 1802 Membership Card. 
 This library is available through the Arduino Library Manager or in the [PaulStoffregen/AltSoftSerial repository](https://github.com/PaulStoffregen/AltSoftSerial)
-on GitHub.
+on GitHub. For Inverse Logic an updated version of the AltSoftSerial library is available in the [fourstix/AltSoftSerial repository](https://github.com/fourstix/AltSoftSerial)
+forked from the master repository on GitHub.  [Pull Request #59](https://github.com/PaulStoffregen/AltSoftSerial/pull/59) will merge this code update into the master.
 
 For more programs supporting the 1802 Membership Card with various Arduino based hardware please see the 
 [fourstix/MCard1802Arduino repository](https://github.com/fourstix/MCard1802Arduino) on GitHub.
