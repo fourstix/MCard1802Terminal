@@ -82,7 +82,20 @@ Installation
    * Set the Line Ending to "Carriage return"   
    * You should see the Terminal Menu followed by the Monitor program's initial response.
    * If needed, press enter to send a blank line with a Carriage return
-   * If no response, disconnect Run P1-13 from VDD P1-14, briefly, then reconnect and try again.
+   * If no response, disconnect Run P1-13 from VDD P1-14, briefly, then reconnect and try again.  
+   * Alternatively, you can use a terminal program like RealTerm instead of the Arduino IDE Serial Monitor.
+   * Please see this [Sparkfun Terminal Tutorial](https://learn.sparkfun.com/tutorials/terminal-basics/real-term-windows) for more information.
+   
+* For Inverse Logic   
+   * To run an 1802 Membership card with a ROM with inverse logic like MCSMP20J.
+   * Invert the output of Q with a transistor or logic inverter to create /Q (NOT Q or Inverse Q).
+   * Connect /Q (NOT Q) to Arduino pin 8 (RX), connect pin 9 (TX) to /EF3 P1-26 (The software will invert TX.)
+   * Connect Arduino GND to GND, P1-1 and P1-30, on the Membership Card.
+   * Obtain a version of AltSoftSerial that supports invese logic from [fourstix/AltSoftSerial](https://github.com/fourstix/AltSoftSerial)
+   * See [Pull Request #59](https://github.com/PaulStoffregen/AltSoftSerial/pull/59) for status in main repository.
+   * Manually install this Arduino Library. Please see this [Sparkfun Arduino Library Tutorial](https://learn.sparkfun.com/tutorials/installing-an-arduino-library) for details.
+   * Compile the Arduino code with AltSoftSerial(true) contstructor.
+   * Open the Serial Monitor as before. For programs with ANSI graphics, like in Adventureland, use a terminal program like [RealTerm.](https://realterm.sourceforge.io/)
    
 Examples
 --------
@@ -93,9 +106,17 @@ Examples
    <td><img src="https://github.com/fourstix/MCard1802Terminal/blob/master/pics/TerminalWindow.jpg"></td> 
   </tr>
   <tr align="center">
-  <td>Picture of Arduino connected to the 1802 Membership Card</td>
-  <td>Fritzing diagram showing connections</td>
-  <td>Screen shot of Terminal Window with the 1802 Membership Card Monitor program's initial response.</td>
+    <td>Picture of Arduino connected to the 1802 Membership Card</td>
+    <td>Fritzing diagram showing connections</td>
+    <td>Screen shot of Terminal Window with the 1802 Membership Card Monitor program's initial response.</td>
+  </tr>
+  <tr align="center">
+    <td><img src="https://github.com/fourstix/MCard1802Terminal/blob/master/pics/RealTerm1.jpg"></td>
+    <td><img src="https://github.com/fourstix/MCard1802Terminal/blob/master/pics/RealTerm2.jpg"></td> 
+  </tr>
+  <tr align="center">
+    <td>Screen shot of RealTerm Window with the 1802 Membership Card running MCSMP20J with Inverse Serial Logic.</td>
+    <td>Screen shot of RealTerm Window with the 1802 Membership Card running MCSMP20J with Adventureland ANSI graphics.</td>        
   </tr>
  </table>
  
